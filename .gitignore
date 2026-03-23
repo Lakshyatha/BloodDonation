@@ -1,0 +1,40 @@
+# IDE / Editor
+.metadata/
+.settings/
+.classpath
+.project
+.factorypath
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+bin/
+
+# Dependencies
+node_modules/
+jspm_packages/
+bower_components/
+
+# Build outputs
+target/
+dist/
+build/
+out/
+*.log
+*.tmp
+*.temp
+
+# Secrets & OS
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.DS_Store
+Thumbs.db
+
+# Maven
+.mvn/
+mvnw
+mvnw.cmd
+system.properties
