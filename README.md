@@ -1,54 +1,49 @@
-# Blood Donation Management System 🩸
+# BloodLink: Blood Donation Management System 🩸
 
-A full-stack web application for managing blood donors — built with **Spring Boot** (Java) + **React** (Vite) + **MySQL** (Aiven Cloud).
+A high-performance, full-stack web application designed to connect blood donors with those in emergency need. Built with a modern distributed architecture and a premium medical-grade UI.
+
+## 🌐 Live Demo
+- **Frontend:** [https://blood-donation-sage.vercel.app](https://blood-donation-sage.vercel.app)
+- **Backend API:** [https://blooddonation-backend-wvpe.onrender.com](https://blooddonation-backend-wvpe.onrender.com)
+
+---
 
 ## 🚀 Tech Stack
 | Layer | Technology |
-|-------|-----------|
-| Frontend | React 19 + Vite, Vanilla CSS, Axios |
-| Backend | Spring Boot 3.3.5, Spring Data JPA |
-| Database | MySQL (Aiven Cloud) |
-| AI Features | Rule-based NLP Search + Chatbot |
+| :--- | :--- |
+| **Frontend** | React 19, Vite, Vanilla CSS (Custom Design System), Axios |
+| **Backend** | Spring Boot 3.3.5, Spring Data JPA, Java 17 |
+| **Database** | PostgreSQL (Supabase Cloud - Sydney Region) |
+| **Auth** | Native Role-Based Auth (Admin/Donor) |
+| **Deployment** | Docker (Render), Vercel |
+
+---
+
+## ✨ Key Features
+- 🩸 **Donor Registration:** Seamless onboarding with blood group and city validation.
+- 🆘 **Emergency Request Help:** One-click modal to request immediate aid from specific donors.
+- 🤖 **AI Chatbot:** Intelligent FAQ assistant integrated directly into the dashboard.
+- 👤 **User Profiles:** Personalized dashboards for donors to manage their availability.
+- 🛡️ **Admin Control Plane:** Statistics aggregation and donor database management.
+- 🎨 **Premium UI:** Responsive Glassmorphism design with medical-grade aesthetics.
+
+---
 
 ## 📁 Project Structure
-```
+```text
 blooddonation/
 ├── blooddonation/          # Spring Boot Backend
-│   ├── src/main/java/com/lakshyatha/blooddonation/
-│   │   ├── controller/     # DonorController, AIController
-│   │   ├── service/        # DonorService (business logic)
-│   │   ├── repository/     # DonorRepository (JPA queries)
-│   │   ├── entity/         # Donor entity
-│   │   └── BlooddonationApplication.java
-│   ├── src/main/resources/
-│   │   └── application.properties
-│   └── pom.xml
-│
-├── frontend/               # React Frontend
-│   ├── src/
-│   │   ├── config/api.js   # API base URL config
-│   │   ├── components/     # Navbar, Chatbot
-│   │   ├── pages/          # Home, RegisterDonor, DonorList
-│   │   ├── App.jsx
-│   │   └── index.css       # Premium design system
-│   └── package.json
-│
-└── backend/                # Node.js backend (alternative)
+│   ├── Dockerfile          # Production Build Config
+│   ├── src/main/java/      # Controller, Service, Repository, Entity
+│   └── src/main/resources/ # application.properties (Cloud Config)
+└── frontend/               # React Frontend
+    ├── src/
+    │   ├── pages/          # Home, Admin, Profile, DonorList
+    │   ├── components/     # Navbar, Chatbot, ProtectedRoute
+    │   └── index.css       # Global Design Tokens & Media Queries
 ```
 
-## 🔗 API Endpoints
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/donors` | Register a new donor |
-| GET | `/donors` | Get all donors |
-| GET | `/donors/{id}` | Get donor by ID |
-| GET | `/donors/blood/{group}` | Filter by blood group |
-| GET | `/donors/city/{city}` | Filter by city |
-| PUT | `/donors/{id}` | Update donor |
-| DELETE | `/donors/{id}` | Delete donor |
-| POST | `/ai/search` | AI Natural Language Search |
-| POST | `/ai/chat` | AI Chatbot |
-| POST | `/ai/alert` | Emergency Alert Generator |
+---
 
 ## 💻 Local Setup
 
@@ -57,7 +52,7 @@ blooddonation/
 cd blooddonation
 ./mvnw spring-boot:run
 ```
-The backend starts on **http://localhost:8082**. The Aiven cloud MySQL is already configured in `application.properties`.
+*Starts on [http://localhost:8080](http://localhost:8080). Connected to Supabase Cloud.*
 
 ### 2. Frontend (React)
 ```bash
@@ -65,28 +60,15 @@ cd frontend
 npm install
 npm run dev
 ```
-Opens on **http://localhost:5173**. The frontend connects to the Spring Boot backend automatically.
+*Starts on [http://localhost:5173](http://localhost:5173).*
 
-## 🌍 Deployment
+---
 
-### Backend → Render / Railway
-1. Push to GitHub
-2. Connect repo on Render → set root to `blooddonation`
-3. Build: `./mvnw clean package -DskipTests`
-4. Start: `java -jar target/blooddonation-0.0.1-SNAPSHOT.jar`
-5. Set env vars for DB credentials
+## 🌍 Deployment Summary
+- **Backend:** Deployed via **Docker** on **Render**. Automatic builds via GitHub.
+- **Frontend:** Deployed on **Vercel** with `VITE_API_URL` environment variable pointing to Render.
+- **Database:** Hosted on **Supabase** using the Transaction Pooler (Port 6543) for high concurrency.
 
-### Frontend → Vercel
-1. Import repo on Vercel → set root to `frontend`
-2. Framework: Vite
-3. Update `src/config/api.js` with your deployed backend URL
-4. Deploy!
+---
 
-## ✨ Features
-- 🩸 **Donor CRUD** — Full create, read, update, delete operations
-- 🔍 **Smart Filters** — Filter by blood group and/or city
-- 🤖 **AI Search** — Natural language queries like "Find O+ in Hyderabad"
-- 💬 **AI Chatbot** — Floating assistant on all pages
-- 🚨 **Emergency Alerts** — Generate shareable emergency messages
-- ✏️ **Inline Editing** — Edit donors directly from the list
-- 🎨 **Premium UI** — Glassmorphism, animations, responsive design
+**Developed with ❤️ for the Blood Donation Community.**
