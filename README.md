@@ -71,4 +71,12 @@ npm run dev
 
 ---
 
+---
+
+## 🔮 Future Enhancements
+- 📱 **SMS/WhatsApp Alerts:** Automated notifications for emergency blood requests.
+- 📍 **Map Integration:** Visualize donor locations using Google Maps API.
+- 🏆 **Donor Rewards:** A badge/point system to encourage frequent donations.
+- 🗓️ **Donation History:** Track and maintain records of past donations for each user.
+
 **Developed with ❤️ for the Blood Donation Community.**
